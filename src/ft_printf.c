@@ -6,7 +6,7 @@
 /*   By: ctirions <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/02 18:44:16 by ctirions          #+#    #+#             */
-/*   Updated: 2020/12/10 13:49:05 by ctirions         ###   ########.fr       */
+/*   Updated: 2020/12/22 15:35:01 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,23 @@ int	ft_percent(const char **string, va_list arg)
 
 int	ft_check_flag(const char **string, va_list arg)
 {
+	int	i;
+
 	(*string)++;
-	if (**string == '-')
-		return (ft_flag_minus(string, arg));
+	i  = ft_is_whitespace(string);
+	if ((**string - i - 1) == '-')
+	{
+		return (ft_flag_minus(string, arg) + i);
+	}
 	else if (**string == '0' || **string == '.')
-		return (ft_flag_zero_point(string, arg, 0));
+	{
+		return (ft_flag_zero_point(string, arg, 0) + i);
+	}
 	else if (**string == '*' || ft_isdigit((int)**string))
-		return (ft_flag_nbr_all(string, arg, 0));
-	return (ft_percent(string, arg));
+	{
+		return (ft_flag_nbr_all(string, arg, 0) + i);
+	}
+	return (ft_percent(string, arg) + i);
 }
 
 int	ft_printf(const char *string, ...)
