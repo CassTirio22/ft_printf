@@ -16,6 +16,12 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 
+typedef struct		s_list
+{
+	int percent_l;
+	int flag_l;
+}		t_list;
+
 /*
 **		MAIN FONCTIONS
 */
@@ -39,6 +45,7 @@ int		ft_convert_p(void *pt);
 /*
 **		FLAGS FONCTIONS
 */
+
 int		ft_check_flag(const char **string, va_list arg);
 int		ft_flag_minus(const char **string, va_list arg);
 int		ft_flag_nbr_all(const char **string, va_list arg, int all);

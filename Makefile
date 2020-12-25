@@ -32,7 +32,7 @@ LIBFT	=	./libft
 			@gcc -Wall -Wextra -Werror -c -I./ $< -o ${<:.c=.o}
 			@echo "${LIGHTPURPLE}Compilation : $< --> .o${RESET}"
 
-$(NAME):	clear ${OBJS}
+$(NAME):	${OBJS}
 			@make full -C $(LIBFT)
 			@cp libft/libft.a ./$(NAME)
 			@ar -rcs ${NAME} ${OBJS}
@@ -52,9 +52,6 @@ fclean:		clean
 			@rm -f ${NAME}
 			@make fclean -C $(LIBFT)
 			@echo "${RED}Fclean done !${RESET}"
-
-clear:		
-			@clear
 
 re:			fclean all
 
