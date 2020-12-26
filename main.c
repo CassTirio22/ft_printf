@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+//#include "ft_printf.h"
 #include <stdio.h>
 
 int	main(void)
 {
+	printf("yo%-12.5syo\n", "YOLERAP");
 	return (0);
 }

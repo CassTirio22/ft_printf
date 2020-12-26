@@ -63,6 +63,8 @@ int	ft_printf(const char *string, ...)
 	int		res;
 
 	va_start(arg, string);
+	if (ft_check_error(arg, string))
+		return (0);
 	res = 0;
 	while (*string)
 	{
@@ -72,7 +74,7 @@ int	ft_printf(const char *string, ...)
 			write(1, string, 1);
 		}
 		else
-				res += ft_check_flag(&string, arg);
+			res += ft_check_flag(&string, arg);
 		string++;
 	}
 	va_end(arg);

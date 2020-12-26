@@ -1,0 +1,17 @@
+flag point;
+			%iduxX put (x - size_str) 0 before
+			%s put x char
+			%cp nothing but don't need x		#if x ==> ERROR
+			#if only a point ==> do nothing
+
+flag minus;
+			%iduxXscp put (x - size_str) ' ' after
+			#if only a minus ==> do nothing
+
+flag zero;
+			%iduxX put (x - size_str) 0 before
+			%scp ==> ERROR
+
+flag all;
+			%iduxXscp put (x - size_str) ' ' before
+			#if only a all ==> ERROR
