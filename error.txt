@@ -1,3 +1,4 @@
+FLAGS:
 flag point;
 			%iduxX put (x - size_str) 0 before
 			%s put x char
@@ -15,3 +16,8 @@ flag zero;
 flag all;
 			%iduxXscp put (x - size_str) ' ' before
 			#if only a all ==> ERROR
+
+
+
+SPACES:
+ft_printf("%     d\n", 12);

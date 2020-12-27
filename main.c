@@ -15,6 +15,6 @@
 
 int	main(void)
 {
-	printf("yo%-12.5syo\n", "YOLERAP");
+	printf("yo%dyo\n", 12);
 	return (0);
 }
