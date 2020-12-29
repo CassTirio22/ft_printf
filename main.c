@@ -15,6 +15,6 @@
 
 int	main(void)
 {
-	printf("yo%dyo\n", 12);
+	printf("yo%3pyo\n", NULL);
 	return (0);
 }

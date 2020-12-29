@@ -1,13 +1,14 @@
 FLAGS:
+
 flag point;
 			%iduxX put (x - size_str) 0 before
 			%s put x char
-			%cp nothing but don't need x		#if x ==> ERROR
-			#if only a point ==> do nothing
+			%cp nothing but don't need x		# If x ==> ERROR
+			# If only a point ==> do nothing
 
 flag minus;
 			%iduxXscp put (x - size_str) ' ' after
-			#if only a minus ==> do nothing
+			# If only a minus ==> do nothing
 
 flag zero;
 			%iduxX put (x - size_str) 0 before
@@ -15,9 +16,22 @@ flag zero;
 
 flag all;
 			%iduxXscp put (x - size_str) ' ' before
-			#if only a all ==> ERROR
+			# If only a all ==> ERROR
+flag nbr;
+			%iduxXscp put (x - size_str) ' ' before
+			# No ERROR
 
+repetition of flags;
+			ft_printf("%-----------12s\n", "Salut !");
+			# NO ERROR
+			ft_printf("%----*------12s\n", Salut !);
+			# ERROR
 
+ARG - PERCENT:
 
-SPACES:
-ft_printf("%     d\n", 12);
+			ft_printf("Yo tout le monde %d !\n", "c'est Squeezie");
+			# If wrong arg ==> ERROR
+			ft_printf("Yo tout le monde !\n", "c'est Squeezie");
+			# If no percent ==> ERROR
+			ft_printf("Yo toule monde %s !");
+			# If no arg ==> ERROR
