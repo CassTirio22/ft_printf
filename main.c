@@ -15,6 +15,6 @@
 
 int	main(void)
 {
-	printf("yo%3pyo\n", NULL);
+	printf("yo%-12.*syo\n", 8, "Salut tout le monde !");
 	return (0);
 }
