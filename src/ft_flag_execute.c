@@ -65,7 +65,7 @@ int	ft_flag_zero_point(const char **string, va_list arg, int zeros)
 	res = ft_len_arg(string, arg_2);
 	i = -1;
 	while (zeros > res + ++i)
-		write (1, "0", 1);
+		write(1, "0", 1);
 	ft_percent(string, arg);
 	return (res + i);
 }
@@ -93,7 +93,7 @@ int	ft_flag_nbr_all(const char **string, va_list arg, int all)
 	res = ft_len_arg(string, arg_2);
 	i = -1;
 	while (all > res + ++i)
-		write (1, " ", 1);
+		write(1, " ", 1);
 	ft_percent(string, arg);
 	return (res + i);
 }

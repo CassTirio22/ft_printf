@@ -17,7 +17,6 @@ static int	ft_len_i_d(int n)
 	unsigned int	nbr;
 	int				count;
 
-
 	count = 0;
 	if (n < 0)
 	{
@@ -47,7 +46,7 @@ int			ft_len_arg(const char **string, va_list arg)
 	if (**string == 'x' || **string == 'X')
 		return (ft_len_hex_nbr(va_arg(arg, unsigned int)));
 	else if (**string == 'd' || **string == 'i')
-		return(ft_len_i_d(va_arg(arg, int)));
+		return (ft_len_i_d(va_arg(arg, int)));
 	else if (**string == 'p')
 		return (ft_len_p(va_arg(arg, void *)));
 	else if (**string == 'c')

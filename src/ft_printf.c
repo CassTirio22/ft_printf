@@ -36,35 +36,49 @@ int	ft_percent(const char **string, va_list arg)
 	return (0);
 }
 
+int	ft_get_flag(const char **string)
+{
+	char	*flags;
+	int		i;
+
+	flags = "-0.*";
+	i = -1;
+	if (ft_isdigit((int)**string))
+		return (5);
+	while (flags[++i])
+		if (string == flags[i])
+		{
+			if (i == 0 || i == 1)
+				while (string == flags[i])
+					(*string)++;
+			return (i++);
+		}
+	return (0);
+}
+
 int	ft_check_flag(const char **string, va_list arg)
 {
 	int	i;
+	int	res;
 
+	res = 0;
 	(*string)++;
-	i  = ft_is_whitespace(string);
-	if ((**string - i - 1) == '-')
-	{
-		return (ft_flag_minus(string, arg) + i);
-	}
-	else if (**string == '0' || **string == '.')
-	{
-		return (ft_flag_zero_point(string, arg, 0) + i);
-	}
-	else if (**string == '*' || ft_isdigit((int)**string))
-	{
-		return (ft_flag_nbr_all(string, arg, 0) + i);
-	}
-	return (ft_percent(string, arg) + i);
+	i = ft_get_flag(string);
+	if (!ft_strchr(".*sicxXupd%", (int)**string) || !ft_isdigit((int)**string))
+		return (-1);
+	if (!i)
+		return (ft_percent(string, arg));
 }
 
 int	ft_printf(const char *string, ...)
 {
 	va_list	arg;
 	int		res;
+	int		tmp;
 
-	va_start(arg, string);
-	if (ft_check_error(arg, string))
+	if (!string)
 		return (0);
+	va_start(arg, string);
 	res = 0;
 	while (*string)
 	{
@@ -74,7 +88,11 @@ int	ft_printf(const char *string, ...)
 			write(1, string, 1);
 		}
 		else
-			res += ft_check_flag(&string, arg);
+		{
+			if ((tmp = ft_check_flag(&string, arg)) == -1)
+				return (res);
+			res += tmp;
+		}
 		string++;
 	}
 	va_end(arg);

@@ -20,44 +20,45 @@ typedef struct		s_list
 {
 	int percent_l;
 	int flag_l;
-}		t_list;
+}					t_list;
 
 /*
 **		MAIN FONCTIONS
 */
 
-int		ft_printf(const char *string, ...);
-int		ft_percent(const char **string, va_list arg);
+int					ft_printf(const char *string, ...);
+int					ft_percent(const char **string, va_list arg);
 
 /*
 **		CONVERT FONCTIONS
 */
 
-int		ft_convert_i_d(int n);
-int		ft_convert_c(int c);
-int		ft_convert_x(unsigned int n);
-int		ft_convert_majx(unsigned int n);
-int		ft_convert_s(char *string);
-int		ft_convert_i(int n);
-int		ft_convert_u(int n);
-int		ft_convert_p(void *pt);
+int					ft_convert_i_d(int n);
+int					ft_convert_c(int c);
+int					ft_convert_x(unsigned int n);
+int					ft_convert_majx(unsigned int n);
+int					ft_convert_s(char *string);
+int					ft_convert_i(int n);
+int					ft_convert_u(int n);
+int					ft_convert_p(void *pt);
 
 /*
 **		FLAGS FONCTIONS
 */
 
-int		ft_check_flag(const char **string, va_list arg);
-int		ft_flag_minus(const char **string, va_list arg);
-int		ft_flag_nbr_all(const char **string, va_list arg, int all);
-int		ft_flag_zero_point(const char **string, va_list arg, int zeros);
+int					ft_check_flag(const char **string, va_list arg);
+int					ft_flag_minus(const char **string, va_list arg);
+int					ft_flag_nbr_all(const char **string, va_list arg, int all);
+int					ft_flag_zero_point(const char **string, \
+					va_list arg, int zeros);
 
 /*
 **		ADD FONCTIONS
 */
 
-int		ft_len_arg(const char **string, va_list arg);
-int		ft_len_hex_nbr(unsigned long n);
-void	ft_put_unsigned_int(unsigned int n);
-int		ft_count(unsigned int n);
+int					ft_len_arg(const char **string, va_list arg);
+int					ft_len_hex_nbr(unsigned long n);
+void				ft_put_unsigned_int(unsigned int n);
+int					ft_count(unsigned int n);
 
 #endif
