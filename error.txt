@@ -1,5 +1,8 @@
 FLAGS:
 
+Combinaisons;
+			seulement le flag point peut etre mis en second et il est prioritaire sur le flag d'avant
+
 flag point;
 			%iduxX put (x - size_str) 0 before
 			%s put x char
