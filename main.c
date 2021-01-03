@@ -12,9 +12,10 @@
 
 //#include "ft_printf.h"
 #include <stdio.h>
+#include <unistd.h>
 
 int	main(void)
 {
-	printf("YO%dyo\n", 21);
+	printf("YO%.34syo\n", "Hello");
 	return (0);
 }
