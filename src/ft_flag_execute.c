@@ -12,7 +12,22 @@
 
 #include "../ft_printf.h"
 
-int	ft_flag_minus(const char **string, va_list arg)
+int	ft_flags_execute(int flag, const char **string, va_list arg)
+{
+	if (i == 1)
+		return (ft_flag_minus(string, arg));
+	else if (i == 2)
+		return (ft_flag_zero(string, arg));
+	else if (i == 3)
+		return (ft_flag_point(string, arg));
+	else if (i == 4)
+		return (ft_flag_all(string, arg));
+	return (ft_flags_nbr(string, arg));
+}
+
+
+
+/*int	ft_flag_minus(const char **string, va_list arg)
 {
 	int res;
 	int spaces;
@@ -96,4 +111,4 @@ int	ft_flag_nbr_all(const char **string, va_list arg, int all)
 		write(1, " ", 1);
 	ft_percent(string, arg);
 	return (res + i);
-}
+}*/

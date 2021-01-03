@@ -15,6 +15,6 @@
 
 int	main(void)
 {
-	printf("YO%.dyo\n", 21);
+	printf("YO%dyo\n", 21);
 	return (0);
 }

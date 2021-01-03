@@ -36,38 +36,25 @@ int	ft_percent(const char **string, va_list arg)
 	return (0);
 }
 
-int	ft_get_flag(const char **string)
-{
-	char	*flags;
-	int		i;
-
-	flags = "-0.*";
-	i = -1;
-	if (ft_isdigit((int)**string))
-		return (5);
-	while (flags[++i])
-		if (string == flags[i])
-		{
-			if (i == 0 || i == 1)
-				while (string == flags[i])
-					(*string)++;
-			return (i++);
-		}
-	return (0);
-}
-
 int	ft_check_flag(const char **string, va_list arg)
 {
 	int	i;
-	int	res;
+	int	j;
+	int	k;
+	int	add;
 
-	res = 0;
+	add = 0;
 	(*string)++;
 	i = ft_get_flag(string);
-	if (!ft_strchr(".*sicxXupd%", (int)**string) || !ft_isdigit((int)**string))
+	j = ft_get_precision(string, arg);
+	k = ft_get_percent(string);
+	if (!ft_strchr(".sicxXupd%", (int)**string))
 		return (-1);
 	if (!i)
 		return (ft_percent(string, arg));
+	if (**string == '.')
+		add = ft_flag_second_point(string, arg);
+	return (ft_flags_execute(i, j, k, string, arg) + add);
 }
 
 int	ft_printf(const char *string, ...)
