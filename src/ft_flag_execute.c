@@ -12,7 +12,7 @@
 
 #include "../ft_printf.h"
 
-int	ft_flags_execute(int flag, const char **string, va_list arg)
+int	ft_flags_execute(int flag, const char *string, va_list arg)
 {
 	if (i == 1)
 		return (ft_flag_minus(string, arg));

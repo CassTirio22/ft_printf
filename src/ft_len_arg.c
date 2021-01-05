@@ -41,19 +41,19 @@ static int	ft_len_p(void *pt)
 	return (ft_len_hex_nbr(addr) + 2);
 }
 
-int			ft_len_arg(const char **string, va_list arg)
+int			ft_len_arg(const char *string, va_list arg)
 {
-	if (**string == 'x' || **string == 'X')
+	if (*string == 'x' || *string == 'X')
 		return (ft_len_hex_nbr(va_arg(arg, unsigned int)));
-	else if (**string == 'd' || **string == 'i')
+	else if (*string == 'd' || *string == 'i')
 		return (ft_len_i_d(va_arg(arg, int)));
-	else if (**string == 'p')
+	else if (*string == 'p')
 		return (ft_len_p(va_arg(arg, void *)));
-	else if (**string == 'c')
+	else if (*string == 'c')
 		return (1);
-	else if (**string == 's')
+	else if (*string == 's')
 		return (ft_strlen(va_arg(arg, char *)));
-	else if (**string == 'u')
+	else if (*string == 'u')
 		return (ft_count(va_arg(arg, unsigned int)));
 	return (0);
 }

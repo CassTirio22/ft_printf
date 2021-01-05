@@ -12,23 +12,23 @@
 
 #include "../ft_printf.h"
 
-int	ft_percent(const char **string, va_list arg)
+int	ft_percent(const char *string, va_list arg)
 {
-	if (**string == 's')
+	if (*string == 's')
 		return (ft_convert_s(va_arg(arg, char *)));
-	else if (**string == 'i' || **string == 'd')
+	else if (*string == 'i' || *string == 'd')
 		return (ft_convert_i_d(va_arg(arg, unsigned int)));
-	else if (**string == 'c')
+	else if (*string == 'c')
 		return (ft_convert_c(va_arg(arg, int)));
-	else if (**string == 'x')
+	else if (*string == 'x')
 		return (ft_convert_x(va_arg(arg, unsigned int)));
-	else if (**string == 'X')
+	else if (*string == 'X')
 		return (ft_convert_majx(va_arg(arg, unsigned int)));
-	else if (**string == 'u')
+	else if (*string == 'u')
 		return (ft_convert_u(va_arg(arg, int)));
-	else if (**string == 'p')
+	else if (*string == 'p')
 		return (ft_convert_p(va_arg(arg, void *)));
-	else if (**string == '%')
+	else if (*string == '%')
 	{
 		write(1, "%", 1);
 		return (1);
@@ -36,7 +36,7 @@ int	ft_percent(const char **string, va_list arg)
 	return (0);
 }
 
-int	ft_check_flag(const char **string, va_list arg)
+int	ft_check_flag(const char *string, va_list arg)
 {
 	int	i;
 	int	j;
@@ -44,15 +44,15 @@ int	ft_check_flag(const char **string, va_list arg)
 	int	add;
 
 	add = 0;
-	(*string)++;
+	string++;
 	i = ft_get_flag(string);
 	j = ft_get_precision(string, arg);
 	k = ft_get_percent(string);
-	if (!ft_strchr(".sicxXupd%", (int)**string))
+	if (!ft_strchr(".sicxXupd%", (int)*string))
 		return (-1);
 	if (!i)
 		return (ft_percent(string, arg));
-	if (**string == '.')
+	if (*string == '.')
 		add = ft_flag_second_point(string, arg);
 	return (ft_flags_execute(i, j, k, string, arg) + add);
 }
@@ -76,7 +76,7 @@ int	ft_printf(const char *string, ...)
 		}
 		else
 		{
-			if ((tmp = ft_check_flag(&string, arg)) == -1)
+			if ((tmp = ft_check_flag(string, arg)) == -1)
 				return (res);
 			res += tmp;
 		}
