@@ -12,20 +12,30 @@
 
 #include "../ft_printf.h"
 
-int	ft_flags_execute(int flag, const char *string, va_list arg)
+int		ft_get_element(const char **string)
 {
-	if (i == 1)
-		return (ft_flag_minus(string, arg));
-	else if (i == 2)
-		return (ft_flag_zero(string, arg));
-	else if (i == 3)
-		return (ft_flag_point(string, arg));
-	else if (i == 4)
-		return (ft_flag_all(string, arg));
-	return (ft_flags_nbr(string, arg));
+	ft_set_element();
+	p_list.flag = ft_get_first_flag(string);
+	ft_get_first_precision(string);
+	ft_get_second(string);
+	//ft_get_value(string);
+	if (p_list.error)
+	{
+		printf("ERROR\n");
+		return (-1);
+	}
+	//ft_execute();
+	printf("FLAG1 : %c\nPOINT : %d\nPREC1 : %d\nPREC2 : %d\n", p_list.flag, p_list.point, p_list.precision1, p_list.precision2);
+	return (0);
 }
 
+/*char	*add_front(char *malloced, char *add)
+{
+}
 
+char	*add_back(char *malloced, char *add)
+{
+}*/	
 
 /*int	ft_flag_minus(const char **string, va_list arg)
 {

@@ -10,12 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "ft_printf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 #include <unistd.h>
 
 int	main(void)
 {
-	printf("YO%.34syo\n", "Hello");
+	char *str = "---------13.12";
+	printf("str : %s\n", str);
+	//printf("YO%0*.3dyo\n", 12, 12);
+	ft_get_element((const char **)&str);
 	return (0);
 }
