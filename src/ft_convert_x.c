@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_x.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctirions <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/04 11:22:26 by ctirions          #+#    #+#             */
-/*   Updated: 2020/12/04 11:24:32 by ctirions         ###   ########.fr       */
+/*   Created: 2021/01/07 19:02:00 by ctirions          #+#    #+#             */
+/*   Updated: 2021/01/07 19:39:32 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_convert_x(unsigned int n)
+char	*ft_get_x(unsigned int n)
 {
 	char	*hexa_base;
 	int		power;

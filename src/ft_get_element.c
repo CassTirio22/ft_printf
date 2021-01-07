@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_get_element.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/07 19:36:11 by ctirions          #+#    #+#             */
+/*   Updated: 2021/01/07 19:39:39 by ctirions         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 char	ft_get_first_flag(const char **string)
@@ -73,7 +85,7 @@ void	ft_get_second(const char **string)
 	}
 }
 
-/*char	*ft_get_value(const char **string)
+char	*ft_get_value(const char **string)
 {
 	const char	*percent_str;
 	int			i;
@@ -92,7 +104,7 @@ void	ft_get_second(const char **string)
 			else if (i == 2)
 				return (ft_get_c(va_arg(p_list.arg, int)));
 			else if (i == 3)
-				return (ft_get_x(va_arg(p_list.arg, unsigned int));
+				return (ft_get_x(va_arg(p_list.arg, unsigned int)));
 			else if (i == 4)
 				return (ft_get_capx(va_arg(p_list.arg, unsigned int)));
 			else if (i == 5)
@@ -102,4 +114,4 @@ void	ft_get_second(const char **string)
 	}
 	p_list.error = 1;
 	return (NULL);
-}*/
+}

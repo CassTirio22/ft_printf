@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctirions <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 18:44:55 by ctirions          #+#    #+#             */
-/*   Updated: 2020/12/10 13:05:50 by ctirions         ###   ########.fr       */
+/*   Created: 2021/01/07 18:55:37 by ctirions          #+#    #+#             */
+/*   Updated: 2021/01/07 19:39:57 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ void				ft_set_element(void);
 **		CONVERT FONCTIONS
 */
 
-int					ft_get_i_d(int n);
-int					ft_get_c(int c);
-int					ft_get_x(unsigned int n);
-int					ft_get_capx(unsigned int n);
-int					ft_get_s(char *string);
-int					ft_get_i(int n);
-int					ft_get_u(int n);
-int					ft_get_p(void *pt);
+char				*ft_get_i_d(int n);
+char				*ft_get_c(int c);
+char				*ft_get_x(unsigned int n);
+char				*ft_get_capx(unsigned int n);
+char				*ft_get_s(char *string);
+char				*ft_get_i(int n);
+char				*ft_get_u(int n);
+char				*ft_get_p(void *pt);
 
 /*
 **		FLAGS FONCTIONS

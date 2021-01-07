@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_i_d.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctirions <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/04 11:20:55 by ctirions          #+#    #+#             */
-/*   Updated: 2020/12/04 11:25:44 by ctirions         ###   ########.fr       */
+/*   Created: 2021/01/07 18:55:53 by ctirions          #+#    #+#             */
+/*   Updated: 2021/01/07 19:39:20 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_get_i_d(int n)
 {
 	unsigned int	nbr;
 
-	count = 1;
 	if (n < 0)
 		nbr = -n;
 	else

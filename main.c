@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctirions <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 14:32:47 by ctirions          #+#    #+#             */
-/*   Updated: 2020/12/22 14:55:30 by ctirions         ###   ########.fr       */
+/*   Created: 2021/01/07 19:31:55 by ctirions          #+#    #+#             */
+/*   Updated: 2021/01/07 19:40:00 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(void)
 	char	*str = "----123.23s";
 
 	test[0] = 'l';
-	printf("str : %34p\n", &str);
+	printf("str : %s\n", str);
 	ft_get_element((const char **)&str);
 	return (0);
 }
