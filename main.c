@@ -16,9 +16,11 @@
 
 int	main(void)
 {
-	char *str = "---------13.12";
-	printf("str : %s\n", str);
-	//printf("YO%0*.3dyo\n", 12, 12);
+	char test[1];
+	char	*str = "----123.23s";
+
+	test[0] = 'l';
+	printf("str : %34p\n", &str);
 	ft_get_element((const char **)&str);
 	return (0);
 }

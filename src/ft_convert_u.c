@@ -12,23 +12,15 @@
 
 #include "../ft_printf.h"
 
-int	ft_convert_u(int n)
+char	*ft_get_u(int n)
 {
-	int				count;
 	unsigned int	nbr;
-
-	count = 0;
+	
+	p_list.percent = 'u';
 	if (n < 0)
 	{
 		nbr = UINT_MAX + n + 1;
-		ft_put_unsigned_int(nbr);
-		return (ft_count(nbr));
+		return (ft_itoa(nbr));
 	}
-	ft_putnbr_fd(n, 1);
-	while (n > 9)
-	{
-		count++;
-		n /= 10;
-	}
-	return (count);
+	return (ft_itoa(n));
 }

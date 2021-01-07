@@ -18,7 +18,7 @@ int		ft_get_element(const char **string)
 	p_list.flag = ft_get_first_flag(string);
 	ft_get_first_precision(string);
 	ft_get_second(string);
-	//ft_get_value(string);
+	//p_list.value = ft_get_value(string);
 	if (p_list.error)
 	{
 		printf("ERROR\n");

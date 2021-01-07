@@ -14,10 +14,10 @@
 
 void	ft_set_element(void)
 {
-	p_list.final_string = NULL;
+	p_list.str = NULL;
 	p_list.value = NULL;
-	p_list.percent = 0;
-	p_list.flag = 0;
+	p_list.percent = '\0';
+	p_list.flag = '\0';
 	p_list.point = 0;
 	p_list.precision1 = 0;
 	p_list.precision2 = 0;

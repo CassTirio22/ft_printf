@@ -12,8 +12,21 @@
 
 #include "../ft_printf.h"
 
-int	ft_convert_s(char *string)
+char	*ft_get_s(char *str)
 {
-	ft_putstr_fd(string, 1);
-	return (ft_strlen(string));
+	char	*res;
+	p_list.percent = 's';
+	if (!str)
+	{
+		if (!(res = (char *)ft_calloc(sizeof(char), 7)))
+			return (NULL);
+		res = "(null)";
+	}
+	else
+	{
+		if (!(res = (char *)ft_calloc(sizeof(char), ft_strlen(str) + 1)))
+			return (NULL);
+		res = str;
+	}
+	return (res);
 }

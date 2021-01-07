@@ -19,9 +19,8 @@
 
 typedef struct		c_list
 {
-	char	*final_string;
+	char	*str;
 	char	*value;
-	va_list	arg;
 	char	percent;
 	char	flag;
 	int		point;
@@ -29,6 +28,7 @@ typedef struct		c_list
 	int		precision2;
 	int		res;
 	int		error;
+	va_list	arg;
 }					j_list;
 
 j_list	p_list;
@@ -37,6 +37,7 @@ int		ft_get_element(const char **string);
 char	ft_get_first_flag(const char **string);
 void	ft_get_first_precision(const char **string);
 void	ft_get_second(const char **string);
+char	*ft_get_value(const char **string);
 
 /*
 **		MAIN FONCTIONS
@@ -49,14 +50,14 @@ void				ft_set_element(void);
 **		CONVERT FONCTIONS
 */
 
-int					ft_convert_i_d(int n);
-int					ft_convert_c(int c);
-int					ft_convert_x(unsigned int n);
-int					ft_convert_majx(unsigned int n);
-int					ft_convert_s(char *string);
-int					ft_convert_i(int n);
-int					ft_convert_u(int n);
-int					ft_convert_p(void *pt);
+int					ft_get_i_d(int n);
+int					ft_get_c(int c);
+int					ft_get_x(unsigned int n);
+int					ft_get_capx(unsigned int n);
+int					ft_get_s(char *string);
+int					ft_get_i(int n);
+int					ft_get_u(int n);
+int					ft_get_p(void *pt);
 
 /*
 **		FLAGS FONCTIONS

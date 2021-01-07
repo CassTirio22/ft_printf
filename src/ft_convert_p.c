@@ -12,7 +12,7 @@
 
 #include "../ft_printf.h"
 
-int	ft_convert_p(void *pt)
+char	*ft_get_p(void *pt)
 {
 	unsigned long	addr;
 	char			*hexa_base;
@@ -24,15 +24,15 @@ int	ft_convert_p(void *pt)
 	addr = (unsigned long)pt;
 	hexa_base = "0123456789abcdef";
 	power = ft_len_hex_nbr(addr);
-	if (!(res = ft_calloc(sizeof(char), (power + 1))))
+	if (!(res = ft_calloc(sizeof(char), (power + 3))))
 		return (0);
-	while (power--)
+	res[0] = '0';
+	res[1] = 'x';
+	while (power-- > 2)
 	{
 		count++;
 		res[power] = hexa_base[addr % 16];
 		addr /= 16;
 	}
-	ft_putstr_fd("0x", 1);
-	ft_putstr_fd(res, 1);
-	return (count + 2);
+	return (res);
 }

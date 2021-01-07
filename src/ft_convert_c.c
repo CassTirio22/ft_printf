@@ -12,11 +12,13 @@
 
 #include "../ft_printf.h"
 
-int	ft_convert_c(int c)
+char	*ft_get_c(int c)
 {
-	char c_bis;
+	char	*str;
 
-	c_bis = (char)c;
-	ft_putchar_fd(c_bis, 1);
-	return (1);
+	p_list.percent = 'c';
+	if (!(str = (char *)malloc(sizeof(char))))
+		return (0);
+	str[0] = (char)c;
+	return (str);
 }
