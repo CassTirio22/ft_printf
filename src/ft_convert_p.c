@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:27:51 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/07 19:39:19 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/10 15:10:59 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ char	*ft_get_p(void *pt)
 		return (0);
 	res[0] = '0';
 	res[1] = 'x';
-	while (power-- > 2)
+	while (power--)
 	{
 		count++;
-		res[power] = hexa_base[addr % 16];
+		res[power + 2] = hexa_base[addr % 16];
 		addr /= 16;
 	}
 	return (res);

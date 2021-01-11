@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_flag_execute.c                                  :+:      :+:    :+:   */
+/*   ft_execute.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/07 18:49:47 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/07 19:39:35 by ctirions         ###   ########.fr       */
+/*   Created: 2021/01/10 13:55:21 by ctirions          #+#    #+#             */
+/*   Updated: 2021/01/10 18:33:13 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,69 @@
 
 int		ft_get_element(const char **string)
 {
+	(*string)++;
 	ft_set_element();
 	p_list.flag = ft_get_first_flag(string);
 	ft_get_first_precision(string);
 	ft_get_second(string);
-	//p_list.value = ft_get_value(string);
+	p_list.value = ft_get_value(string);
 	if (p_list.error)
 	{
 		printf("ERROR\n");
 		return (-1);
 	}
 	//ft_execute();
-	printf("FLAG1 : %c\nPOINT : %d\nPREC1 : %d\nPREC2 : %d\n", p_list.flag, p_list.point, p_list.precision1, p_list.precision2);
+	printf("FLAG1 : %c\nPOINT : %d\nPREC1 : %d\nPREC2 : %d\nVALUE : %s\n", p_list.flag, p_list.point, p_list.precision1, p_list.precision2, p_list.value);
 	return (0);
 }
 
-/*char	*add_front(char *malloced, char *add)
+char	*add_front(char *add)
 {
+	int		size;
+	char	*res;
+
+	size = ft_strlen(add) + ft_strlen(p_list.value);
+	if (!(res = (char *)ft_calloc(sizeof(char), size + 1)))
+		return (-1);
+	while (size-- - ft_strlen(add))
+		res[size] = p_list.value[size - ft_strlen(add)];
+	while (size--)
+		res[size] = add[size];
+	return (res);
 }
 
-char	*add_back(char *malloced, char *add)
+char	*add_back(char *add)
 {
-}*/	
+	int		size;
+	char	*res;
+
+	size = ft_strlen(add) + ft_strlen(p_list.value);
+	if (!(res = (char *)ft_calloc(sizeof(char), size + 1)))
+		return (-1);
+	while (size-- - ft_strlen(p_list.value))
+		res[size] = add[size - ft_strlen(p_list.value)];
+	while (size--)
+		res[size] = p_list.value[size];
+	return (res);
+}
+
+void	ft_execute(void)
+{
+	if (p_list.point)
+	{
+		if (p_list.flag == '*' || p_list.flag == '0')
+			p_list.value = add_front(ft_get_add2());
+		else
+			p_list.value = add_back(ft_get_add2());
+	}
+	if (p_list.flag)
+	{
+		if (p_list.flag == '*' || p_list.flag == '0' || p_list.flag == '.')
+			p_list.value = add_front(ft_get_add1());
+		else
+			p_list.value = add_back(ft_get_add1()); 
+	}
+}
 
 /*int	ft_flag_minus(const char **string, va_list arg)
 {

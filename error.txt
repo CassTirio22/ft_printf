@@ -19,9 +19,6 @@ flag zero;
 
 flag all;
 			%iduxXscp put (x - size_str) ' ' before
-			# If only a all ==> ERROR
-flag nbr;
-			%iduxXscp put (x - size_str) ' ' before
 			# No ERROR
 
 repetition of flags;

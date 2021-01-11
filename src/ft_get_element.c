@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 19:36:11 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/07 19:39:39 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/10 17:58:43 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	ft_get_first_flag(const char **string)
 	int		i;
 
 	i = -1;
-	flags = "-0.*";
-	if (ft_isdigit((int)**string) && **string != '0')
-		return ('n');
+	flags = "-0.";
+	if ((ft_isdigit((int)**string) && **string != '0') || **string == '*')
+		return ('*');
 	while (flags[++i])
 	{
 		if (**string == flags[i])
@@ -39,7 +39,8 @@ void	ft_get_first_precision(const char **string)
 {
 	int	i;
 
-	if (!ft_strchr(".*sicxXupd%", (int)**string) && !ft_isdigit((int)**string))
+	if ((!ft_strchr(".*sicxXupd%", (int)**string)\
+		&& !ft_isdigit((int)**string)) || **string == '0')
 	{
 		p_list.error = 1;
 		return ;

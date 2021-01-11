@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ctirions <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:40:51 by ctirions          #+#    #+#             */
-/*   Updated: 2020/11/23 16:09:36 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/10 14:58:19 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			ft_itoa_count(int n)
+static int			ft_itoa_count(long long int n)
 {
 	int				count;
 	unsigned int	nb;
@@ -33,7 +33,7 @@ static int			ft_itoa_count(int n)
 	return (++count);
 }
 
-char				*ft_itoa(int n)
+char				*ft_itoa(long long int n)
 {
 	int				count;
 	char			*res;

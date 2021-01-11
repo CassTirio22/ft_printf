@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:48:27 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/07 19:39:19 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/10 14:11:48 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 char	*ft_get_s(char *str)
 {
 	char	*res;
+
 	p_list.percent = 's';
 	if (!str)
 	{

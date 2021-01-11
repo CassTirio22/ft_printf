@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:03:09 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/07 19:39:49 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/10 14:03:42 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ void	ft_set_element(void)
 
 int		ft_printf(const char *string, ...)
 {
+	int	result;
+
+	result = 0;
 	ft_set_element();
 	if (!string)
 		return (0);
@@ -39,10 +42,13 @@ int		ft_printf(const char *string, ...)
 			write(1, string, 1);
 		}
 		else
+		{
 			if (ft_get_element(&string) == -1)
-				return (p_list.res);
+				return (result);
+			result += p_list.res;
+		}
 		string++;
 	}
 	va_end(p_list.arg);
-	return (p_list.res);
+	return (result);
 }
