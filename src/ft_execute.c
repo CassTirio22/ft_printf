@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 13:55:21 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/10 18:33:13 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/11 15:17:36 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int		ft_get_element(const char **string)
 	ft_get_first_precision(string);
 	ft_get_second(string);
 	p_list.value = ft_get_value(string);
-	if (p_list.error)
+	if (p_list.error || !p_list.value)
 	{
 		printf("ERROR\n");
 		return (-1);
 	}
-	//ft_execute();
+	ft_execute();
 	printf("FLAG1 : %c\nPOINT : %d\nPREC1 : %d\nPREC2 : %d\nVALUE : %s\n", p_list.flag, p_list.point, p_list.precision1, p_list.precision2, p_list.value);
 	return (0);
 }
@@ -42,6 +42,7 @@ char	*add_front(char *add)
 		res[size] = p_list.value[size - ft_strlen(add)];
 	while (size--)
 		res[size] = add[size];
+	free(p_list.value);
 	return (res);
 }
 
@@ -57,6 +58,7 @@ char	*add_back(char *add)
 		res[size] = add[size - ft_strlen(p_list.value)];
 	while (size--)
 		res[size] = p_list.value[size];
+	free(p_list.value);
 	return (res);
 }
 
@@ -64,17 +66,18 @@ void	ft_execute(void)
 {
 	if (p_list.point)
 	{
+		ft_convert_vlaue();
 		if (p_list.flag == '*' || p_list.flag == '0')
-			p_list.value = add_front(ft_get_add2());
+			p_list.value = add_front(ft_get_add());
 		else
-			p_list.value = add_back(ft_get_add2());
+			p_list.value = add_back(ft_get_add());
 	}
 	if (p_list.flag)
 	{
 		if (p_list.flag == '*' || p_list.flag == '0' || p_list.flag == '.')
-			p_list.value = add_front(ft_get_add1());
+			p_list.value = add_front(ft_get_add());
 		else
-			p_list.value = add_back(ft_get_add1()); 
+			p_list.value = add_back(ft_get_add()); 
 	}
 }
 

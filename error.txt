@@ -7,8 +7,6 @@ flag point;
 			%iduxX put (x - size_str) 0 before
 			%s put x char
 			%cp nothing but don't need x		# If x ==> ERROR
-			# If only a point ==> do nothing
-
 flag minus;
 			%iduxXscp put (x - size_str) ' ' after
 			# If only a minus ==> do nothing
