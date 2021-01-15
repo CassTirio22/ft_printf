@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 19:36:11 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/10 17:58:43 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/15 15:29:57 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,13 @@ void	ft_get_first_precision(const char **string)
 	}
 	else if (**string == '*')
 	{
-		p_list.precision1 = va_arg(p_list.arg, int);
+		p_list.prec1 = va_arg(p_list.arg, int);
 		(*string)++;
 	}
 	else if (ft_isdigit((int)**string))
 	{
-		p_list.precision1 = ft_atoi(*string);
-		i = ft_count(p_list.precision1);
+		p_list.prec1 = ft_atoi(*string);
+		i = ft_count(p_list.prec1);
 		while (i--)
 			(*string)++;
 	}
@@ -74,19 +74,19 @@ void	ft_get_second(const char **string)
 	(*string)++;
 	if (**string == '*')
 	{
-		p_list.precision2 = va_arg(p_list.arg, int);
+		p_list.prec2 = va_arg(p_list.arg, int);
 		(*string)++;
 	}
 	else if (ft_isdigit((int)**string))
 	{
-		p_list.precision2 = ft_atoi(*string);
-		i = ft_count(p_list.precision2);
+		p_list.prec2 = ft_atoi(*string);
+		i = ft_count(p_list.prec2);
 		while (i--)
 			(*string)++;
 	}
 }
 
-char	*ft_get_value(const char **string)
+int		ft_execute(const char **string)
 {
 	const char	*percent_str;
 	int			i;
@@ -97,7 +97,6 @@ char	*ft_get_value(const char **string)
 	{
 		if (**string == percent_str[i])
 		{
-			(*string)++;
 			if (i == 0)
 				return (ft_get_s(va_arg(p_list.arg, char *)));
 			else if (i == 1 || i == 7)
@@ -114,5 +113,5 @@ char	*ft_get_value(const char **string)
 		}
 	}
 	p_list.error = 1;
-	return (NULL);
+	return (0);
 }

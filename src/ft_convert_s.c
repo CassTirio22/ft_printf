@@ -6,28 +6,24 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:48:27 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/10 14:11:48 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/15 14:41:45 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_get_s(char *str)
+int	ft_weird_s(void)
 {
-	char	*res;
+	return (0);
+}
 
-	p_list.percent = 's';
+int	ft_get_s(char *str)
+{
+	if (p_list.flag == '.' || p_list.point)
+		return (ft_weird_s());
 	if (!str)
-	{
-		if (!(res = (char *)ft_calloc(sizeof(char), 7)))
-			return (NULL);
-		res = "(null)";
-	}
+		write(1, "(null)", 6);
 	else
-	{
-		if (!(res = (char *)ft_calloc(sizeof(char), ft_strlen(str) + 1)))
-			return (NULL);
-		res = str;
-	}
-	return (res);
+		ft_putstr_fd(str, 1);
+	return (!str ? 6 : ft_strlen(str));
 }

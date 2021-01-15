@@ -6,13 +6,14 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:55:53 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/10 17:34:10 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/15 14:29:20 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_get_i_d(int n)
+int	ft_get_i_d(int n)
 {
-	return (ft_itoa(n));
+	ft_putnbr_fd(n, 1);
+	return (ft_count(n));
 }

@@ -6,19 +6,29 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:01:44 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/07 19:39:22 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/15 15:23:50 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_get_c(int c)
+int	ft_get_c(int c)
 {
-	char	*str;
+	int	i;
 
-	p_list.percent = 'c';
-	if (!(str = (char *)malloc(sizeof(char))))
-		return (0);
-	str[0] = (char)c;
-	return (str);
+	i = -1;
+	if (p_list.flag == '.' && p_list.prec1)
+		return (-1);
+	if (p_list.point && p_list.prec2)
+		return (-1);
+	if (p_list.flag == '*')
+		while (++i < p_list.prec1 - 1)
+			write(1, " ", 1);
+	ft_putchar_fd(c, 1);
+	if (p_list.flag == '-')
+	{
+		while (++i < p_list.prec1 - 1)
+			write(1, " ", 1);
+	}
+	return (p_list.prec1 ? p_list.prec1 : 1);
 }

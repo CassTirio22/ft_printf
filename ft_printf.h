@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:55:37 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/10 13:53:41 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/15 15:17:53 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef struct		c_list
 	char	percent;
 	char	flag;
 	int		point;
-	int		precision1;
-	int		precision2;
+	int		prec1;
+	int		prec2;
 	int		res;
 	int		error;
 	va_list	arg;
@@ -33,11 +33,11 @@ typedef struct		c_list
 
 j_list	p_list;
 
-int		ft_get_element(const char **string);
-char	ft_get_first_flag(const char **string);
-void	ft_get_first_precision(const char **string);
-void	ft_get_second(const char **string);
-char	*ft_get_value(const char **string);
+int			ft_get_element(const char **string);
+char		ft_get_first_flag(const char **string);
+void		ft_get_first_precision(const char **string);
+void		ft_get_second(const char **string);
+int			ft_execute(const char **string);
 
 /*
 **		MAIN FONCTIONS
@@ -50,24 +50,26 @@ void				ft_set_element(void);
 **		CONVERT FONCTIONS
 */
 
-char				*ft_get_i_d(int n);
-char				*ft_get_c(int c);
-char				*ft_get_x(unsigned int n);
-char				*ft_get_capx(unsigned int n);
-char				*ft_get_s(char *string);
-char				*ft_get_i(int n);
-char				*ft_get_u(int n);
-char				*ft_get_p(void *pt);
+int					ft_get_i_d(int n);
+int					ft_get_c(int c);
+int					ft_get_x(unsigned int n);
+int					ft_get_capx(unsigned int n);
+int					ft_get_s(char *string);
+int					ft_get_i(int n);
+int					ft_get_u(int n);
+int					ft_get_p(void *pt);
 
 /*
 **		FLAGS FONCTIONS
 */
 
+/*
 int					ft_check_flag(const char *string, va_list arg);
 int					ft_flag_minus(const char *string, va_list arg);
 int					ft_flag_nbr_all(const char *string, va_list arg, int all);
 int					ft_flag_zero_point(const char *string, \
 					va_list arg, int zeros);
+*/
 
 /*
 **		ADD FONCTIONS

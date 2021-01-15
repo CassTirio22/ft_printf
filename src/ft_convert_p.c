@@ -6,13 +6,13 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:27:51 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/10 15:10:59 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/15 14:39:05 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	*ft_get_p(void *pt)
+int	ft_get_p(void *pt)
 {
 	unsigned long	addr;
 	char			*hexa_base;
@@ -24,15 +24,16 @@ char	*ft_get_p(void *pt)
 	addr = (unsigned long)pt;
 	hexa_base = "0123456789abcdef";
 	power = ft_len_hex_nbr(addr);
-	if (!(res = ft_calloc(sizeof(char), (power + 3))))
+	if (!(res = (char *)ft_calloc(sizeof(char), power + 1)))
 		return (0);
-	res[0] = '0';
-	res[1] = 'x';
+	write(1, "0x", 2);
 	while (power--)
 	{
 		count++;
-		res[power + 2] = hexa_base[addr % 16];
+		res[power] = hexa_base[addr % 16];
 		addr /= 16;
 	}
-	return (res);
+	ft_putstr_fd(res, 1);
+	free(res);
+	return (count + 2);
 }
