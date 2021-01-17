@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:42:41 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/15 14:38:49 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/16 15:12:24 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,14 @@ int	ft_get_capx(unsigned int n)
 	char	*hexa_base;
 	int		power;
 	int		count;
-	char	*res;
 
 	hexa_base = "0123456789ABCDEF";
 	power = ft_len_hex_nbr(n);
 	count = power;
-	if(!(res = (char *)ft_calloc(sizeof(char), power + 1)))
-		return (0);
 	while (power--)
 	{
-		res[power] = hexa_base[n % 16];
+		ft_putchar_fd(hexa_base[n % 16], 1);
 		n /= 16;
 	}
-	ft_putstr_fd(res, 1);
-	free(res);
 	return (count);
 }

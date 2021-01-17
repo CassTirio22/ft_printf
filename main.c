@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 19:31:55 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/15 15:46:15 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/17 14:29:24 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 #include <unistd.h>
 
 int	main(void)
-{
-	printf("printf\n|%-2c|%i|\n\n", 'L', -12);
-	ft_printf("ft_printf\n|%-2c|%i|\n", 'L', -12);
+{	
+	int i = 23;
+
+	printf("printf\n|%21.4s|%i|\n\n", NULL, &i);
+	ft_printf("ft_printf\n|%21.4s|%i|\n", NULL, &i);
 	return (0);
 }
