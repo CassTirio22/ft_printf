@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 19:31:55 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/17 14:29:24 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/17 20:38:11 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 int	main(void)
 {	
-	int i = 23;
+	int i = 27;
 
-	printf("printf\n|%21.4s|%i|\n\n", NULL, &i);
-	ft_printf("ft_printf\n|%21.4s|%i|\n", NULL, &i);
+	printf("%d\n", printf("|%-19.12i|%06.4X|\n", 32, i));
+	printf("%d\n", ft_printf("|%-19.12i|%06.4X|\n", 32, i));
 	return (0);
 }

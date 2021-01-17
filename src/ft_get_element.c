@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 19:36:11 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/15 15:29:57 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/17 20:23:41 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,11 @@ void	ft_get_second(const char **string)
 	}
 }
 
-int		ft_execute(const char **string)
+int		ft_execute(const char **string, char *percent_str)
 {
-	const char	*percent_str;
 	int			i;
 
 	i = -1;
-	percent_str = "sicxXupd";
 	while (percent_str[++i])
 	{
 		if (**string == percent_str[i])
@@ -106,7 +104,7 @@ int		ft_execute(const char **string)
 			else if (i == 3)
 				return (ft_get_x(va_arg(p_list.arg, unsigned int)));
 			else if (i == 4)
-				return (ft_get_capx(va_arg(p_list.arg, unsigned int)));
+				return (ft_get_capx(va_arg(p_list.arg, unsigned int), 0));
 			else if (i == 5)
 				return (ft_get_u(va_arg(p_list.arg, int)));
 			return (ft_get_p(va_arg(p_list.arg, void *)));

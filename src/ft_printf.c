@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:03:09 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/15 15:59:38 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/17 20:22:12 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,19 @@ int		ft_printf(const char *string, ...)
 	int	result;
 
 	result = 0;
-	ft_set_element();
 	if (!string)
 		return (0);
 	va_start(p_list.arg, string);
 	while (*string)
 	{
+		ft_set_element();
 		if (!(*string == '%'))
 		{
 			result++;
 			write(1, string, 1);
 		}
-		else
-			if (ft_get_element(&string) == -1)
-				return (result);
+		else if (ft_get_element(&string) == -1)
+			return (result);
 		result += p_list.res;
 		string++;
 	}

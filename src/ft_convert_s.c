@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:48:27 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/16 16:04:58 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/17 16:17:42 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	ft_weird_s(char *str)
 	if (p_list.flag == '-')
 		while (j++ < p_list.prec1 - size)
 			write(1, " ", 1);
+	j = j ? j-- : j;
 	return (ft_strlen(str) > (size_t)size ? size + j : ft_strlen(str));
 }
 
@@ -57,5 +58,6 @@ int	ft_get_s(char *str)
 	if (p_list.flag == '-')
 		while (i++ < p_list.prec1 - size)
 			write(1, " ", 1);
+	i = i ? i-- : i;
 	return (!str ? 6 + i : ft_strlen(str) + i);
 }

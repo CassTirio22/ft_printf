@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 13:55:21 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/15 15:56:08 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/17 20:23:32 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_get_element(const char **string)
 	p_list.flag = ft_get_first_flag(string);
 	ft_get_first_precision(string);
 	ft_get_second(string);
-	p_list.res = ft_execute(string);
+	p_list.res = ft_execute(string, "sicxXupd");
 	if (p_list.error)
 	{
 		printf("ERROR\n");

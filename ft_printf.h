@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:55:37 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/15 15:17:53 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/17 20:24:09 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			ft_get_element(const char **string);
 char		ft_get_first_flag(const char **string);
 void		ft_get_first_precision(const char **string);
 void		ft_get_second(const char **string);
-int			ft_execute(const char **string);
+int			ft_execute(const char **string, char *percent_str);
 
 /*
 **		MAIN FONCTIONS
@@ -53,7 +53,7 @@ void				ft_set_element(void);
 int					ft_get_i_d(int n);
 int					ft_get_c(int c);
 int					ft_get_x(unsigned int n);
-int					ft_get_capx(unsigned int n);
+int					ft_get_capx(unsigned int n, int i);
 int					ft_get_s(char *string);
 int					ft_get_i(int n);
 int					ft_get_u(int n);
