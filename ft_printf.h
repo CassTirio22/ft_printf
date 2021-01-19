@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:55:37 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/17 20:24:09 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:24:29 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,9 @@ void				ft_set_element(void);
 **		CONVERT FONCTIONS
 */
 
-int					ft_get_i_d(int n);
+int					ft_get_i_d(int n, int size, int neg);
 int					ft_get_c(int c);
-int					ft_get_x(unsigned int n);
-int					ft_get_capx(unsigned int n, int i);
+int					ft_get_x(unsigned int n, const char *hex);
 int					ft_get_s(char *string);
 int					ft_get_i(int n);
 int					ft_get_u(int n);
