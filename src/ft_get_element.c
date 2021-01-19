@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 19:36:11 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/19 14:51:29 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/19 18:04:44 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int		ft_execute(const char **string, char *percent_str)
 			if (i == 0)
 				return (ft_get_s(va_arg(p_list.arg, char *)));
 			else if (i == 1 || i == 7)
-				return (ft_get_i_d(va_arg(p_list.arg, int), 0));
+				return (ft_get_i_d(va_arg(p_list.arg, int), 0, 0));
 			else if (i == 2)
 				return (ft_get_c(va_arg(p_list.arg, int)));
 			else if (i == 3)
@@ -107,7 +107,9 @@ int		ft_execute(const char **string, char *percent_str)
 				return (ft_get_x(va_arg(p_list.arg, unsigned int), "0123456789ABCDEF"));
 			else if (i == 5)
 				return (ft_get_u(va_arg(p_list.arg, int)));
-			return (ft_get_p(va_arg(p_list.arg, void *)));
+			if (i == 6)
+				return (ft_get_p(va_arg(p_list.arg, void *)));
+			return (ft_get_c('%'));
 		}
 	}
 	p_list.error = 1;
