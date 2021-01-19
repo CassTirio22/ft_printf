@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 19:36:11 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/19 18:04:44 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/19 19:39:40 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int		ft_execute(const char **string, char *percent_str)
 			else if (i == 5)
 				return (ft_get_u(va_arg(p_list.arg, int)));
 			if (i == 6)
-				return (ft_get_p(va_arg(p_list.arg, void *)));
+				return (ft_get_p(va_arg(p_list.arg, void *), "0123456789abcdef", 0));
 			return (ft_get_c('%'));
 		}
 	}

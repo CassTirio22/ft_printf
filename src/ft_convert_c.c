@@ -6,16 +6,11 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 17:01:44 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/19 14:33:51 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/19 19:31:02 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-int	ft_weird_c(int c)
-{
-	return (c);
-}
 
 int	ft_get_c(int c)
 {
