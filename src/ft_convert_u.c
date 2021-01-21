@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:37:00 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/18 14:41:06 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/21 18:27:38 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_get_u(int n)
 			write(1, " ", 1);
 	else if (p_list.flag == '0')
 		while (i++ < p_list.prec1 - size)
-			write (1, "0", 1);
+			write(1, "0", 1);
 	ft_put_unsigned_int(nbr);
 	if (p_list.flag == '-')
 		while (i++ < p_list.prec1 - size)

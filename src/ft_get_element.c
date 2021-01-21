@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 19:36:11 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/19 19:39:40 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/21 18:26:46 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ void	ft_get_first_precision(const char **string)
 {
 	int	i;
 
-	if ((!ft_strchr(".*sicxXupd%", (int)**string)\
-		&& !ft_isdigit((int)**string)) || **string == '0')
+	if (!ft_strchr(".*sicxXupd%", (int)**string) && !ft_isdigit((int)**string))
 	{
 		p_list.error = 1;
 		return ;
@@ -52,8 +51,9 @@ void	ft_get_first_precision(const char **string)
 	}
 	else if (ft_isdigit((int)**string))
 	{
+		i = **string == '0' ? 1 : 0;
 		p_list.prec1 = ft_atoi(*string);
-		i = ft_count(p_list.prec1);
+		i += ft_count(p_list.prec1);
 		while (i--)
 			(*string)++;
 	}
@@ -79,18 +79,16 @@ void	ft_get_second(const char **string)
 	}
 	else if (ft_isdigit((int)**string))
 	{
+		i = **string == '0' ? 1 : 0;
 		p_list.prec2 = ft_atoi(*string);
-		i = ft_count(p_list.prec2);
+		i += ft_count(p_list.prec2);
 		while (i--)
 			(*string)++;
 	}
 }
 
-int		ft_execute(const char **string, char *percent_str)
+int		ft_execute(const char **string, char *percent_str, int i, char *hex)
 {
-	int			i;
-
-	i = -1;
 	while (percent_str[++i])
 	{
 		if (**string == percent_str[i])
@@ -102,13 +100,13 @@ int		ft_execute(const char **string, char *percent_str)
 			else if (i == 2)
 				return (ft_get_c(va_arg(p_list.arg, int)));
 			else if (i == 3)
-				return (ft_get_x(va_arg(p_list.arg, unsigned int), "0123456789abcdef"));
+				return (ft_get_x(va_arg(p_list.arg, unsigned int), hex));
 			else if (i == 4)
-				return (ft_get_x(va_arg(p_list.arg, unsigned int), "0123456789ABCDEF"));
+				return (ft_get_x(va_arg(p_list.arg, unsigned int), hex));
 			else if (i == 5)
 				return (ft_get_u(va_arg(p_list.arg, int)));
 			if (i == 6)
-				return (ft_get_p(va_arg(p_list.arg, void *), "0123456789abcdef", 0));
+				return (ft_get_p(va_arg(p_list.arg, void *), hex, 0));
 			return (ft_get_c('%'));
 		}
 	}

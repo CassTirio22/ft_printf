@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:55:37 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/19 19:38:23 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/21 18:09:35 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int					ft_get_x(unsigned int n, const char *hex);
 int					ft_get_s(char *string);
 int					ft_get_i(int n);
 int					ft_get_u(int n);
-int					ft_get_p(void *pt, char *hex, int i);
+int					ft_get_p(void *pt,char *hex, int i);
 
 /*
 **		FLAGS FONCTIONS
