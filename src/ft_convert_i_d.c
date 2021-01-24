@@ -6,13 +6,13 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:55:53 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/19 17:03:59 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/24 13:20:39 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_flag_bef(int size, int neg)
+static int	ft_flag_bef(int size, int neg)
 {
 	int i;
 
@@ -28,7 +28,7 @@ int	ft_flag_bef(int size, int neg)
 	return (i);
 }
 
-int	ft_weird_i_d(unsigned int n, int k, int i, int neg)
+static int	ft_weird_i_d(unsigned int n, int k, int i, int neg)
 {
 	int size;
 	int	j;
@@ -51,7 +51,7 @@ int	ft_weird_i_d(unsigned int n, int k, int i, int neg)
 	return (i ? size + i - 1 : size);
 }
 
-int	ft_get_i_d(int n, int size, int neg)
+int			ft_get_i_d(int n, int size, int neg)
 {
 	int				i;
 	unsigned int	nbr;

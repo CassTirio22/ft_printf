@@ -6,13 +6,13 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:48:27 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/19 18:38:20 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/24 13:22:09 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_flag_zero_all(int size)
+static int	ft_flag_zero_all(int size)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	ft_flag_zero_all(int size)
 	return (i);
 }
 
-int	ft_weird_s(char *str, char *str2)
+static int	ft_weird_s(char *str, char *str2)
 {
 	int		size;
 	int		size2;
@@ -51,7 +51,7 @@ int	ft_weird_s(char *str, char *str2)
 	return (size + j);
 }
 
-int	ft_get_s(char *str)
+int			ft_get_s(char *str)
 {
 	int	size;
 	int	i;

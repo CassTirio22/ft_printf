@@ -6,13 +6,13 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:27:51 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/21 18:23:47 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/24 13:21:25 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_putres(unsigned long addr, int power, char *hex, char *res)
+static void	ft_putres(unsigned long addr, int power, char *hex, char *res)
 {
 	while (power--)
 	{
@@ -23,7 +23,7 @@ void	ft_putres(unsigned long addr, int power, char *hex, char *res)
 	free(res);
 }
 
-int		ft_weird_p(unsigned long addr, int power, char *hex, char *res)
+static int	ft_weird_p(unsigned long addr, int power, char *hex, char *res)
 {
 	int	size;
 	int	i;
@@ -47,7 +47,7 @@ int		ft_weird_p(unsigned long addr, int power, char *hex, char *res)
 	return (size + 2 + i);
 }
 
-int		ft_get_p(void *pt, char *hex, int i)
+static int	ft_get_p(void *pt, char *hex, int i)
 {
 	unsigned long	addr;
 	int				power;

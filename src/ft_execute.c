@@ -6,13 +6,13 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/10 13:55:21 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/21 18:27:51 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/24 13:19:41 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	ft_ajust_elem(void)
+static void	ft_ajust_elem(void)
 {
 	if (p_list.flag && p_list.flag != '.' && p_list.prec1 < 0)
 	{
@@ -31,7 +31,7 @@ void	ft_ajust_elem(void)
 	}
 }
 
-int		ft_get_element(const char **string)
+int			ft_get_element(const char **string)
 {
 	(*string)++;
 	ft_set_element();

@@ -6,13 +6,13 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 18:37:00 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/21 18:27:38 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/24 13:22:51 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_weird_u(unsigned int nbr)
+static int	ft_weird_u(unsigned int nbr)
 {
 	int	size;
 	int	i;
@@ -37,7 +37,7 @@ int	ft_weird_u(unsigned int nbr)
 	return (i ? size + i - 1 : size);
 }
 
-int	ft_get_u(int n)
+int			ft_get_u(int n)
 {
 	unsigned int	nbr;
 	int				size;

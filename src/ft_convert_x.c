@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 19:02:00 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/19 14:42:43 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/24 13:23:20 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_flag_zero_all(int size)
 	return (i);
 }
 
-int			ft_weird_x(unsigned int n, const char *hex, int power, char *res)
+static int	ft_weird_x(unsigned int n, const char *hex, int power, char *res)
 {
 	int	size;
 	int	i;
