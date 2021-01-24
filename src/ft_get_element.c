@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/21 18:26:46 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/24 13:26:39 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/24 19:09:09 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,8 @@ char	ft_get_first_flag(const char **string)
 
 void	ft_get_first_precision(const char **string)
 {
-	int	i;
-
-	if (!ft_strchr(".*sicxXupd%", (int)**string) && !ft_isdigit((int)**string))
+	if (!ft_strchr(".*sicxXupd%", (int)**string) &&\
+		!ft_isdigit((int)**string) && **string != '-')
 	{
 		p_list.error = 1;
 		return ;
@@ -49,20 +48,12 @@ void	ft_get_first_precision(const char **string)
 		p_list.prec1 = va_arg(p_list.arg, int);
 		(*string)++;
 	}
-	else if (ft_isdigit((int)**string))
-	{
-		i = **string == '0' ? 1 : 0;
-		p_list.prec1 = ft_atoi(*string);
-		i += ft_count(p_list.prec1);
-		while (i--)
-			(*string)++;
-	}
+	else if (ft_isdigit((int)**string) || **string == '-')
+		p_list.prec1 = ft_atoi2(string);
 }
 
 void	ft_get_second(const char **string)
 {
-	int i;
-
 	if (ft_strchr("sicxXupd%", (int)**string))
 		return ;
 	else if (**string != '.')
@@ -78,13 +69,7 @@ void	ft_get_second(const char **string)
 		(*string)++;
 	}
 	else if (ft_isdigit((int)**string))
-	{
-		i = **string == '0' ? 1 : 0;
-		p_list.prec2 = ft_atoi(*string);
-		i += ft_count(p_list.prec2);
-		while (i--)
-			(*string)++;
-	}
+		p_list.prec2 = ft_atoi2(string);
 }
 
 int		ft_execute(const char **string, char *percent_str, int i, char *hex)
@@ -102,7 +87,8 @@ int		ft_execute(const char **string, char *percent_str, int i, char *hex)
 			else if (i == 3)
 				return (ft_get_x(va_arg(p_list.arg, unsigned int), hex));
 			else if (i == 4)
-				return (ft_get_x(va_arg(p_list.arg, unsigned int), hex));
+				return (ft_get_x(va_arg(p_list.arg, unsigned int),\
+					"0123456789ABCDEF"));
 			else if (i == 5)
 				return (ft_get_u(va_arg(p_list.arg, int)));
 			if (i == 6)

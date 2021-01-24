@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:20:39 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/24 13:26:56 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/24 19:09:59 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,22 @@ static int	ft_flag_bef(int size, int neg)
 static int	ft_weird_i_d(unsigned int n, int k, int i, int neg)
 {
 	int size;
+	int	l;
 	int	j;
 
 	size = p_list.point ? p_list.prec2 : p_list.prec1;
+	l = !size && !n ? 1 : 0;
 	size = size > ft_count(n) ? size : ft_count(n);
 	i += k;
 	j = 0;
 	if (p_list.flag == '*' || p_list.flag == '0')
-		while (i++ < p_list.prec1 - size)
+		while (-l + i++ < p_list.prec1 - size)
 			write(1, " ", 1);
 	if (neg)
 		ft_putchar_fd('-', 1);
 	while (j++ < size - ft_count(n))
 		write(1, "0", 1);
-	ft_put_unsigned_int(n);
+	l ? size-- : ft_put_unsigned_int(n);
 	if (p_list.flag == '-')
 		while (i++ < p_list.prec1 - size)
 			write(1, " ", 1);

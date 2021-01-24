@@ -6,31 +6,32 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:22:51 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/24 13:27:07 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/24 19:01:46 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int	ft_weird_u(unsigned int nbr)
+static int	ft_weird_u(unsigned int nbr, int l)
 {
 	int	size;
 	int	i;
 	int	j;
 
 	size = p_list.point ? p_list.prec2 : p_list.prec1;
+	l = !nbr && !size ? 1 : 0;
 	size = size > ft_count(nbr) ? size : ft_count(nbr);
 	i = 0;
 	j = 0;
 	if (p_list.flag == '*')
-		while (i++ < p_list.prec1 - size)
+		while (-l + i++ < p_list.prec1 - size)
 			write(1, " ", 1);
 	else if (p_list.flag == '0')
-		while (i++ < p_list.prec1 - size)
+		while (-l + i++ < p_list.prec1 - size)
 			write(1, " ", 1);
 	while (j++ < size - ft_count(nbr))
 		write(1, "0", 1);
-	ft_put_unsigned_int(nbr);
+	l ? size-- : ft_put_unsigned_int(nbr);
 	if (p_list.flag == '-')
 		while (i++ < p_list.prec1 - size)
 			write(1, " ", 1);
@@ -48,7 +49,7 @@ int			ft_get_u(int n)
 	else
 		nbr = n;
 	if (p_list.flag == '.' || p_list.point)
-		return (ft_weird_u(nbr));
+		return (ft_weird_u(nbr, 0));
 	size = ft_count(nbr);
 	i = 0;
 	if (p_list.flag == '*')

@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:21:25 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/24 13:27:00 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/24 14:30:29 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	ft_weird_p(unsigned long addr, int power, char *hex, char *res)
 	return (size + 2 + i);
 }
 
-static int	ft_get_p(void *pt, char *hex, int i)
+int			ft_get_p(void *pt, char *hex, int i)
 {
 	unsigned long	addr;
 	int				power;
