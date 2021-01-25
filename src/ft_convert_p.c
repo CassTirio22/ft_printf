@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:21:25 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/24 14:30:29 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/25 17:41:19 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ static int	ft_weird_p(unsigned long addr, int power, char *hex, char *res)
 
 	j = 0;
 	i = 0;
-	size = p_list.point ? p_list.prec2 : p_list.prec1;
+	size = g_point ? g_prec2 : g_prec1;
 	size = size > power ? size : power;
-	if (p_list.flag == '*' || p_list.flag == '0')
-		while (i++ < p_list.prec1 - size - 2)
+	if (g_flag == '*' || g_flag == '0')
+		while (i++ < g_prec1 - size - 2)
 			write(1, " ", 1);
 	write(1, "0x", 2);
 	while (j++ < size - power)
 		write(1, "0", 1);
 	ft_putres(addr, power, hex, res);
-	if (p_list.flag == '-')
-		while (i++ < p_list.prec1 - size - 2)
+	if (g_flag == '-')
+		while (i++ < g_prec1 - size - 2)
 			write(1, " ", 1);
 	i = i ? --i : i;
 	return (size + 2 + i);
@@ -58,19 +58,19 @@ int			ft_get_p(void *pt, char *hex, int i)
 	power = ft_len_hex_nbr(addr);
 	if (!(res = (char *)ft_calloc(sizeof(char), power + 1)))
 		return (0);
-	if (p_list.point || p_list.flag == '.')
+	if (g_point || g_flag == '.')
 		return (ft_weird_p(addr, power, hex, res));
 	size = power;
-	if (p_list.flag == '*')
-		while (i++ < p_list.prec1 - size - 2)
+	if (g_flag == '*')
+		while (i++ < g_prec1 - size - 2)
 			write(1, " ", 1);
 	write(1, "0x", 2);
-	if (p_list.flag == '0')
-		while (i++ < p_list.prec1 - size - 2)
+	if (g_flag == '0')
+		while (i++ < g_prec1 - size - 2)
 			write(1, "0", 1);
 	ft_putres(addr, power, hex, res);
-	if (p_list.flag == '-')
-		while (i++ < p_list.prec1 - size - 2)
+	if (g_flag == '-')
+		while (i++ < g_prec1 - size - 2)
 			write(1, " ", 1);
 	i = i ? --i : i;
 	return (size + 2 + i);

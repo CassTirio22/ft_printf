@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:20:39 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/24 19:09:59 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/25 17:28:53 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static int	ft_flag_bef(int size, int neg)
 	int i;
 
 	i = 0;
-	if (p_list.flag == '*')
-		while (i++ < p_list.prec1 - size)
+	if (g_flag == '*')
+		while (i++ < g_prec1 - size)
 			write(1, " ", 1);
 	if (neg)
 		ft_putchar_fd('-', 1);
-	if (p_list.flag == '0')
-		while (i++ < p_list.prec1 - size)
+	if (g_flag == '0')
+		while (i++ < g_prec1 - size)
 			write(1, "0", 1);
 	return (i);
 }
@@ -34,23 +34,23 @@ static int	ft_weird_i_d(unsigned int n, int k, int i, int neg)
 	int	l;
 	int	j;
 
-	size = p_list.point ? p_list.prec2 : p_list.prec1;
+	size = g_point ? g_prec2 : g_prec1;
 	l = !size && !n ? 1 : 0;
 	size = size > ft_count(n) ? size : ft_count(n);
 	i += k;
 	j = 0;
-	if (p_list.flag == '*' || p_list.flag == '0')
-		while (-l + i++ < p_list.prec1 - size)
+	if (g_flag == '*' || g_flag == '0')
+		while (-l + i++ < g_prec1 - size - neg)
 			write(1, " ", 1);
 	if (neg)
 		ft_putchar_fd('-', 1);
 	while (j++ < size - ft_count(n))
 		write(1, "0", 1);
 	l ? size-- : ft_put_unsigned_int(n);
-	if (p_list.flag == '-')
-		while (i++ < p_list.prec1 - size)
+	if (g_flag == '-')
+		while (i++ < g_prec1 - size - neg)
 			write(1, " ", 1);
-	return (i ? size + i - 1 : size);
+	return (i ? size + i - 1 + neg : size + neg);
 }
 
 int			ft_get_i_d(int n, int size, int neg)
@@ -61,18 +61,17 @@ int			ft_get_i_d(int n, int size, int neg)
 	if (n < 0)
 	{
 		nbr = -n;
-		size++;
 		neg++;
 	}
 	else
 		nbr = n;
-	if (p_list.flag == '.' || p_list.point)
+	if (g_flag == '.' || g_point)
 		return (ft_weird_i_d(nbr, size, 0, neg));
-	size += ft_count(nbr);
+	size += ft_count(nbr) + neg;
 	i = ft_flag_bef(size, neg);
 	ft_put_unsigned_int(nbr);
-	if (p_list.flag == '-')
-		while (i++ < p_list.prec1 - size)
+	if (g_flag == '-')
+		while (i++ < g_prec1 - size)
 			write(1, " ", 1);
 	return (i ? size + i - 1 : size);
 }

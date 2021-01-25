@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 20:22:12 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/24 13:26:42 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/25 17:40:50 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	ft_set_element(void)
 {
-	p_list.percent = '\0';
-	p_list.flag = '\0';
-	p_list.point = 0;
-	p_list.prec1 = 0;
-	p_list.prec2 = 0;
-	p_list.res = 0;
-	p_list.error = 0;
+	g_percent = '\0';
+	g_flag = '\0';
+	g_point = 0;
+	g_prec1 = 0;
+	g_prec2 = 0;
+	g_res = 0;
+	g_error = 0;
 }
 
 int		ft_printf(const char *string, ...)
@@ -30,7 +30,7 @@ int		ft_printf(const char *string, ...)
 	result = 0;
 	if (!string)
 		return (0);
-	va_start(p_list.arg, string);
+	va_start(g_arg, string);
 	while (*string)
 	{
 		ft_set_element();
@@ -41,9 +41,9 @@ int		ft_printf(const char *string, ...)
 		}
 		else if (ft_get_element(&string) == -1)
 			return (result);
-		result += p_list.res;
+		result += g_res;
 		string++;
 	}
-	va_end(p_list.arg);
+	va_end(g_arg);
 	return (result);
 }

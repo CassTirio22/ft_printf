@@ -6,7 +6,7 @@
 #    By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/16 13:22:17 by ctirions          #+#    #+#              #
-#    Updated: 2021/01/24 14:25:22 by ctirions         ###   ########.fr        #
+#    Updated: 2021/01/25 17:51:54 by ctirions         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,16 @@ BLUE		= $(shell tput -Txterm setaf 6)
 WHITE		= $(shell tput -Txterm setaf 7)
 RESET		= $(shell tput -Txterm sgr0)
 
-SRCS	=	$(shell ls src/ | grep -E ".+\.c")
+SRCS	=	ft_convert_c.c \
+			ft_convert_i_d.c \
+			ft_convert_p.c \
+			ft_convert_s.c \
+			ft_convert_u.c \
+			ft_convert_x.c \
+			ft_execute.c \
+			ft_get_element.c \
+			ft_printf.c \
+			ft_utils.c
 
 OBJS	=	$(addprefix src/, ${SRCS:.c=.o})
 
