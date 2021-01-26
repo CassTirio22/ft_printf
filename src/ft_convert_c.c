@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:21:30 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/25 17:27:26 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/01/26 15:49:05 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ int	ft_get_c(int c)
 	if (g_flag == '-')
 		while (i++ < g_prec1 - 1)
 			write(1, " ", 1);
-	return (g_prec1 ? g_prec1 : 1);
+	return (g_prec1 && g_flag != '.' ? g_prec1 : 1);
 }
