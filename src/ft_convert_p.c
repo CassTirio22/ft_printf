@@ -6,7 +6,7 @@
 /*   By: ctirions <ctirions@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/24 13:21:25 by ctirions          #+#    #+#             */
-/*   Updated: 2021/01/25 18:10:56 by ctirions         ###   ########.fr       */
+/*   Updated: 2021/03/06 12:27:31 by ctirions         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,20 @@ static int	ft_weird_p(unsigned long addr, int power, char *hex, char *res)
 	int	size;
 	int	i;
 	int	j;
+	int	l;
 
 	j = 0;
 	i = 0;
 	size = g_point ? g_prec2 : g_prec1;
+	l = !size && !addr ? 1 : 0;
 	size = size > power ? size : power;
 	if (g_flag == '*' || g_flag == '0')
-		while (i++ < g_prec1 - size - 2)
+		while (i++ < g_prec1 - size - 2 + l)
 			write(1, " ", 1);
 	write(1, "0x", 2);
 	while (j++ < size - power)
 		write(1, "0", 1);
-	ft_putres(addr, power, hex, res);
+	l ? size-- : ft_putres(addr, power, hex, res);
 	if (g_flag == '-')
 		while (i++ < g_prec1 - size - 2)
 			write(1, " ", 1);
